@@ -48,7 +48,7 @@ const getPrice = async (chunk) => {
   const requestObject = {
     "servicerequest": {
       "requestpreamble": {
-        "customernumber": "325831",
+        "customernumber": "<No.>",
         "isocountrycode": "PE"
       },
       "priceandstockrequest": {
@@ -62,7 +62,7 @@ const getPrice = async (chunk) => {
   let token = await getToken();
   axios.defaults.headers.common['Authorization'] = `Bearer ${token}`; 
 
-  axios.post(baseUrl, requestObject)
+axios.post(baseUrl, requestObject)
   .then(response => {
     const arrayOfSku = response.data.serviceresponse.priceandstockresponse.details;
     arrayOfSku.forEach(product => {
